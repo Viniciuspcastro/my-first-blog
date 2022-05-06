@@ -12,8 +12,16 @@
                 <h1>Meu Blog</h1>
             </div>
             <div class="subtitulo">
-                <h3>Conteudo atualizado e de qualidade</h3>
+                <h3>Conteúdo atualizado e de qualidade</h3>
             </div>
         </header>
+
+        {% for post in posts %}
+        <div>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+            <p>published: {{ post.published_date }}</p>
+        </div>
+        {% endfor %}
     </body>
 </html>
