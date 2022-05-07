@@ -1,27 +1,43 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <meta charset="UTF-8">
         <title>MeuBlog</title>
-
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
 
     <body>
-        <header class="header" >
-            <div class="titulo">
-                <h1>Meu Blog</h1>
+        <header class="header">
+            <div>
+                <h1 class="titulo" >Meu Blog</h1>
             </div>
-            <div class="subtitulo">
-                <h3>Conteúdo atualizado e de qualidade</h3>
+            <div>
+                <h3 class="subtitulo">Conteúdo atualizado e de qualidade</h3>
             </div>
         </header>
+       
+        <article>
+            {% for post in posts %}
+            <div class="posts">
+                <h2><a>{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+                <p>published: {{ post.published_date }}</p>
+            </div>
+            {% endfor %}
+        </article>
+        <br/><br/>
+            <form class="mensagem">
+                <label>Tem algo a nos dizer? Manda seu comentario que iremos responder <br/>
+                    <textarea name="comentario">
+                    </textarea>
+                </label>
+                <input type="submit" value="Enviar comentario" class="enviarcomentario"/>
+            </form>
+        <br/>
+        <footer>
+            Site feito por Vinicius Pinheiro.
+        </footer>
 
-        {% for post in posts %}
-        <div>
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
-            <p>published: {{ post.published_date }}</p>
-        </div>
-        {% endfor %}
     </body>
 </html>
