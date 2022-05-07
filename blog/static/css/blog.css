@@ -4,7 +4,9 @@
 body{
     margin: 0px;
     padding: 0px;
-    
+    width: 100vw;
+    height: 100vh;
+    background: white url("images/backgroud.jpg");
 }
 .header{
     color:aliceblue;
@@ -13,11 +15,12 @@ body{
     padding: 3px ;
     font-family:Georgia, 'Times New Roman', Times, serif ;
 }
-.posts,.mensagem,footer{
-    
+.posts,mensagem,footer{
     padding: 0px 20% 0px 20%;
-    margin:5px
+    margin:5px;
+    text-decoration: none;
 }
+
 textarea{
     resize: none;
     width: 200px;
